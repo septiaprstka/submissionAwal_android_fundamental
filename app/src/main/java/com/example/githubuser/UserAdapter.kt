@@ -1,5 +1,6 @@
 package com.example.githubuser
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,10 +12,11 @@ import com.example.githubuser.databinding.ItemUserBinding
 class UserAdapter (private val data:MutableList<ResponseUserGithub.Item> = mutableListOf()):
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(data: MutableList<ResponseUserGithub.Item>){
         this.data.clear()
         this.data.addAll(data)
-        notifyDataSetChanged()
+        this.notifyDataSetChanged()
     }
 
     class UserViewHolder(private val v: ItemUserBinding) : RecyclerView.ViewHolder(v.root){
